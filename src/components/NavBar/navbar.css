@@ -1,0 +1,32 @@
+*{
+    font-family: 'Dancing Script', cursive;
+}
+h1 {
+    font-size: 2.5rem;
+    margin-left: 50px;
+    pointer-events: none;
+}
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+a {
+    text-decoration: none;
+    color: #000;
+    font-size: 2rem;
+}
+li {
+    border-radius: 25px;
+}
+li:hover {
+    transform: scale(1.1);
+    transition: .5s;
+}
+
+
