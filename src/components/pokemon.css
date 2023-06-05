@@ -1,0 +1,11 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .card {
+    flex-basis: calc(15% - 10px); /* Ajusta el porcentaje según tus necesidades y considera el espacio entre las tarjetas */
+    margin-bottom: 20px; /* Espacio inferior entre las tarjetas */
+  }

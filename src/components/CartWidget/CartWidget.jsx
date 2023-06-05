@@ -5,7 +5,7 @@ import './CartWidget.css'
 const CartWidget = () => {
   return (
     <div className='cart'>
-        <a href="#"><img src={carritoImage} alt="Carrito de compras" /></a>
+        <img src={carritoImage} alt="Carrito de compras" />
         <div className='circle'>
           <p className='pcw'>1</p>
         </div>

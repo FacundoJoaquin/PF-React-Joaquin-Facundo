@@ -1,0 +1,63 @@
+.sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    display: flex;
+    width: 550px;
+}
+.card img {
+    width: 50%;
+    border-radius: 0 10px 10px 0;
+}
+.textos h2 {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 25px;
+    font-size: 10px;
+    color: hsl(228, 12%, 48%);
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+.textos h3 {
+    font-family: 'Fraunces', serif;
+    padding: 10px 25px;
+    font-weight: 700;
+}
+.textos p {
+    font-family: 'Montserrat', sans-serif;
+    color: hsl(228, 12%, 48%);
+    font-size: 14px;
+    padding: 10px 25px;
+}
+.price {
+    display: flex;
+    align-items: center;
+}
+.price .actual {
+    font-size: 2rem;
+    color: hsl(158, 36%, 37%);
+    font-family: 'Fraunces', serif;
+}
+.price .old {
+    position: relative;
+    right: 30px;
+    text-decoration: line-through;
+}
+form input {
+    width: 80%;
+    height: 40px;
+    position: relative;
+    top: 30px;
+    left: 10%;
+    background-color: hsl(158, 36%, 37%);
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: hsl(0, 0%, 100%);
+    border-radius: 5px;
+    cursor: pointer;
+}
+input:hover {
+    background-color: hsl(158, 36%, 22%);
+}
