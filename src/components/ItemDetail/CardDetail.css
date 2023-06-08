@@ -1,0 +1,47 @@
+.detail-container{
+    display: flex;
+}
+
+.img-detail {
+    margin-left: 20vw;
+    width: 30%;
+}
+.img-detail img {
+    width: 100%;
+}
+.detail-txt {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+}
+
+
+.detail-txt h2 {
+    width: 60%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.detail-txt div {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.detail-txt div p {
+    font-family: 'Roboto', sans-serif;
+    width: 60%;
+}
+
+.price {
+    font-size: 30px;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    border: 1px solid greenyellow;
+}
+
