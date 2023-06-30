@@ -7,9 +7,9 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Typography from '@mui/joy/Typography';
 import { Link } from 'react-router-dom';
 
-const Cards = ( {data} ) => {
+const Cards = ( {data, items} ) => {
 
-
+/* console.log(items); */
 
   return (
     <div>

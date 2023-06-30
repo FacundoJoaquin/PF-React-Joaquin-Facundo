@@ -1,11 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import Swal from 'sweetalert2';
 import Loader from '../Loader';
 import './ItemListContainer.css';
 
-const ItemListContainer = () => {
+import { ItemsContext } from '../Context/ItemsContext';
+
+
+const ItemListContainer = ({}) => {
+  //context
+  const { items } = useContext(ItemsContext);
+
+/*   console.log(items);
+ */
+
+  //codigo entrega 2
   const [loaded, setLoaded] = useState(false);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -55,7 +65,7 @@ const ItemListContainer = () => {
         {loaded ? (
           filteredProducts.map(product => (
             <div className='card' key={product.id}>
-              <ItemList data={product} />
+              <ItemList items={items} data={product} />
             </div>
           ))
         ) : (

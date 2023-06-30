@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 import './navbar.css'
 import { Link } from 'react-router-dom'
+import { ItemsContext } from '../Context/ItemsContext'
 
 const NavBar = () => {
-  
+  const { items } = useContext(ItemsContext);
+/* console.log(items);
+ */
   const [categories, setCategories] = useState([]);
 
   useEffect(()=>{
@@ -28,7 +31,7 @@ const NavBar = () => {
         ))}
       </ul>
       <Link to="/cart">
-        <CartWidget />
+        <CartWidget items={items}/>
       </Link>
     </div>
   );
