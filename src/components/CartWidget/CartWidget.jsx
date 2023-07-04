@@ -3,7 +3,6 @@ import carritoImage from '../../assets/carrito.png'
 import './CartWidget.css'
 
 const CartWidget = ({ items }) => {
-  console.log(items);
   return (
     <div className='cart'>
       <img src={carritoImage} alt="Carrito de compras" />

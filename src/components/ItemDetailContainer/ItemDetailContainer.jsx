@@ -3,30 +3,36 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css';
 import { useState, useEffect } from 'react';
-import Loader from '../Loader'
-
+import Loader from '../Loader/Loader'
+import { db } from "../../firebase/firebaseConfig"
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-  let { id } = useParams();
-  const [prod, setProd] = useState({})
+  const { id } = useParams();
+  const [prod, setProd] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then(resp => resp.json())
-      .then(data => {
-        setProd(data)
-        setLoading(true);
-      })
-  }, [id])
+    const getPokemon = async () => {
+      const q = query(collection(db, 'pokemon'), where('id', '==', parseInt(id)));
+      const querySnapshot = await getDocs(q);
+      let pokemons = [];
+      querySnapshot.forEach((doc) => {
+        pokemons.push({ ...doc.data() });
+        console.log(pokemons);
+      });
+      setLoading(true);
+      setProd(pokemons);
+    };
 
-
+    getPokemon();
+  }, [id]);
 
   return (
     <section className='detail'>
       {loading ? (
         <ItemDetail data={prod} />
-        ) : (
+      ) : (
         <div className="loader"><Loader /></div>
       )}
     </section>

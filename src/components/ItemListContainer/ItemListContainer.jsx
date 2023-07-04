@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import Swal from 'sweetalert2';
-import Loader from '../Loader';
+import Loader from '../Loader/Loader';
 import './ItemListContainer.css';
+import {db} from "../../firebase/firebaseConfig"
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 import { ItemsContext } from '../Context/ItemsContext';
 
@@ -16,10 +18,8 @@ const ItemListContainer = ({}) => {
  */
 
   //codigo entrega 2
+  const [pokemon, setPokemon] = useState([])
   const [loaded, setLoaded] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const { category } = useParams();
 
   const errorFetching = () => {
     Swal.fire({
@@ -30,42 +30,32 @@ const ItemListContainer = ({}) => {
     });
   };
 
-  useEffect(() => {
-    let url = 'https://fakestoreapi.com/products';
-    if (category) {
-      url += `?category=${category}`;
-    }
 
-    fetch(url)
-      .then(resp => resp.json())
-      .then(data => {
-        setProducts(data);
-        setLoaded(true);
-      })
-      .catch(error => {
-        errorFetching(error);
+  useEffect(() => {
+    const getPokemon = async () => { 
+      const q = query(collection(db, "pokemon"));
+      const querySnapshot = await getDocs(q);
+      let pokemons = [];
+      querySnapshot.forEach((doc) => {
+        pokemons.push({...doc.data()})
       });
-  }, [category]);
+      setLoaded(true);
+      setPokemon(pokemons);  //tengo almacenado los pokemon
+      console.log(pokemons);
+    };
+    getPokemon()
+  }, [])
 
-  useEffect(() => {
-    if (category && products.length > 0) {
-      const filteredProducts = products.filter(
-        prod => prod.category === category
-      );
-      setFilteredProducts(filteredProducts);
-    } else {
-      setFilteredProducts(products);
-    }
-  }, [category, products]);
+
 
   return (
     <div className='ilc'>
       <h2>Nuestros productos</h2>
       <div className='card-container'>
         {loaded ? (
-          filteredProducts.map(product => (
+          pokemon.map(product => (
             <div className='card' key={product.id}>
-              <ItemList items={items} data={product} />
+              <ItemList data={product} />
             </div>
           ))
         ) : (

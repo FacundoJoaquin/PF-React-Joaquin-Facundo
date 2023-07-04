@@ -1,0 +1,97 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card-content {
+    width: 300px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 25px 25px 0 0;
+    box-shadow:
+    0px 0px 1.3px rgba(0, 0, 0, 0.035),
+    0px 0px 10px rgba(0, 0, 0, 0.07);  }
+  
+  .top {
+    position: absolute;
+    margin-top: 10px;
+    width: 250px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .radius {
+    position: absolute;
+    z-index: 1;
+    width: 98%;
+    height: 70%;
+    border-radius: 68% / 15% 15% 0 0;
+    background-color: rgba(255, 255, 255, 0.771);
+    backdrop-filter: blur(1%);
+    bottom: 0; /* Para que el efecto de blur comience desde abajo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .top img {
+    overflow: hidden;
+  }
+  
+  .info {
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    flex: 1; /* Ocupa todo el espacio vertical disponible */
+  }
+  
+  .name {
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center; /* Alinear el texto y el botón en el centro horizontal */
+    margin-top: 70%;
+    text-align: center; /* Alinear el texto y el botón en el centro vertical */
+  }
+  
+  .dataname {
+    font-size: 35px;
+    font-weight: 700;
+    color: black;
+  }
+  
+  .squares {
+    display: flex;
+  }
+  
+  .description {
+    z-index: 50;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* Alinear los elementos en la misma altura */
+    width: 90%;
+    height: 100px;
+    margin-top: 25px;
+  }
+  .description p {
+    text-align: center;
+    padding: 5px;
+    color: black;
+    font-size: 14px;
+  }
+  .link {
+    z-index: 10;;
+  }

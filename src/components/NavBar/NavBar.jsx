@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <div className='navBar'>
       <Link to="/">
-        <h1>Pastelete</h1>
+        <h1 className='brand'>POKENO</h1>
       </Link>
       <ul>
         {categories.map((category, index) => (
