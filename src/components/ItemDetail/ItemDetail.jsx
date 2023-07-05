@@ -3,14 +3,13 @@
 import * as React from "react";
 import { useState, useContext, useEffect } from "react";
 import "./ItemDetail.css";
-import { Link } from "react-router-dom";
+import { Navigate, useNavigate  } from "react-router-dom";
 import Boton from "../Boton/Boton.jsx";
 import { ItemsContext } from "../Context/ItemsContext";
 
 const CardDetail = ({ data }) => {
   const { setItems, items } = useContext(ItemsContext);
 
-  const [count, setCount] = useState(0);
 
   const [qty, setQty] = useState(0);
 
@@ -31,15 +30,13 @@ const CardDetail = ({ data }) => {
         setItems([...items, newItem]);
       }
       setQty(0);
-  
       const updatedCart = [...items];
       localStorage.setItem("cart", JSON.stringify(updatedCart));
+
     }
   };
 
-  const deleteCart = () => {
-    setItems([]);
-  };
+
 
   return (
     <div className="container">
@@ -71,9 +68,15 @@ const CardDetail = ({ data }) => {
               Agregar al carrito
             </button>
           </div>
-          <button className="button-qty" onClick={incrementQty}>+</button>
-          <button className="button-qty" onClick={decrememtQty}>-</button>
-          {qty}
+          <div className="itd-qty">
+            <button className="button-qty" onClick={decrememtQty}>
+              -
+            </button>
+            <p>{qty}</p>
+            <button className="button-qty" onClick={incrementQty}>
+              +
+            </button>
+          </div>
         </div>
       </div>
     </div>

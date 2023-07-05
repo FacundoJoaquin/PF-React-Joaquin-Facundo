@@ -8,11 +8,11 @@ export const ItemsProvider = ({ children }) => {
   const [items, setItems] = useState([]); //seria el cart
   const [contador, setContador] = useState([])
 
-  const [groupedItems, setGroupedItems] = useState([]);
+  const [pokemonPull, setPokemonPull] = useState([]);
 
   return (
     <ItemsContext.Provider
-      value={{items, setItems, contador, setContador}}
+      value={{items, setItems, contador, setContador, pokemonPull, setPokemonPull}}
     >
       {children}
     </ItemsContext.Provider>

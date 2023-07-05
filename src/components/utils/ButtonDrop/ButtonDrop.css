@@ -1,0 +1,9 @@
+.generaciones {
+    font-family: "Press Start 2P", cursive;
+    color: black;
+    font-size: 15px;
+}
+.generaciones:hover {
+    padding: 5px;
+    transform: scale(1.1);
+}

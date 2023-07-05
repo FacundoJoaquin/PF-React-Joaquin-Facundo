@@ -1,15 +1,12 @@
 import * as React from 'react';
-import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
-import Add from '@mui/icons-material/Add';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import ThumbUp from '@mui/icons-material/ThumbUp';
+import './Boton.css'
 
 const Boton = () => {
   return (
-    <Box sx={{ }}>
-      <Button startDecorator={<Add />}>Comprar</Button>
-    </Box>
+    <div className='container'>
+    <button type="text" className="btn-style">asdasd </button>
+    <div className="bg-input"/>
+    </div>
   );
 }
 

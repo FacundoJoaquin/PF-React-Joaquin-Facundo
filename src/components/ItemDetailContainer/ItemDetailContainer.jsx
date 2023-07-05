@@ -19,7 +19,6 @@ const ItemDetailContainer = () => {
       let pokemons = [];
       querySnapshot.forEach((doc) => {
         pokemons.push({ ...doc.data() });
-        console.log(pokemons);
       });
       setLoading(true);
       setProd(pokemons);

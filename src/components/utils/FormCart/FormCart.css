@@ -1,0 +1,82 @@
+.formSubmit {
+  position: relative;
+  min-width: 250px;
+}
+.form-cart-container {
+    display: flex;
+    flex-direction: column;
+}
+.back-container {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 15%;
+}
+.back-container img {
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+}
+.fc-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.input-style {
+  width: 200px;
+  height: 30px;
+  border: 2px #1c1c1c solid;
+  z-index: 50;
+  position: absolute;
+}
+.bg-input {
+  width: 200px;
+  height: 30px;
+  background-color: #1c1c1c;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+.input-style:hover {
+  transform: translate(3px, 3px);
+  transition: 0.1s ease-in-out;
+  border: 2px #1c1c1c solid;
+
+
+}
+.input-style:focus {
+  transform: translate(3px, 3px);
+  border: 2px #1c1c1c solid;
+
+}
+.input-container {
+    position: relative;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.btn-container {
+    position: relative;
+  }
+  .btn-style {
+    width: 200px;
+    height: 30px;
+    border: 2px #1c1c1c solid;
+    z-index: 50;
+    position: absolute;
+  }
+
+  .btn-style:active {
+    transform: translate(5px, 5px);
+  }
+  .btn-style:focus {
+    transform: translate(5px, 5px);
+    transition: .1s ease-in-out;
+  }
+.fb-container {
+  margin-top: 20px;
+}
+  .fb-container p {
+    text-align: center;
+  }

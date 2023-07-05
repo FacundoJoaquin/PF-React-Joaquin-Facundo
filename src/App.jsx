@@ -6,29 +6,14 @@ import Cart from "./components/Cart/Cart";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { ItemsProvider } from './components/Context/ItemsContext';
 import CartLoader from './components/utils/CartLoader/CartLoader';
-/* import {db} from "./firebase/firebaseConfig"
-import { collection, query, where, getDocs } from "firebase/firestore"; */
+import CategoryListContainer from './components/CategoryListContainer/CategoryListContainer';
+
 
 
 
 const App = () => {
 
-/*   const [pokemon, setPokemon] = useState([])
 
-  useEffect(() => {
-    const getPokemon = async () => {
-      const q = query(collection(db, "pokemon"));
-      const querySnapshot = await getDocs(q);
-      //console.log(querySnapshot);
-      let pokemons = [];
-      querySnapshot.forEach((doc) => {
-        //console.log(doc.id, " => ", doc.data());
-        pokemons.push({...doc.data()})
-      });
-      setPokemon(pokemons);
-    };
-    getPokemon()
-  }, []) */
 
   return (
     <ItemsProvider>
@@ -38,7 +23,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<ItemListContainer />} />
           <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-          <Route exact path="/category/:category" element={<ItemListContainer />} />
+          <Route exact path="/category/:generacion" element={<CategoryListContainer />} />
           <Route exact path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>

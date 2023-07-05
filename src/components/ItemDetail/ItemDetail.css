@@ -147,3 +147,14 @@ h1 {
     3.6px 4.9px 18.1px rgba(0, 0, 0, 0.06),
     6.7px 9.2px 33.8px rgba(0, 0, 0, 0.072), 16px 22px 81px rgba(0, 0, 0, 0.1);
 }
+
+.itd-qty {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+  gap: 10px;
+}
+.itd-qty {
+  font-family: "Press Start 2P", cursive;
+}

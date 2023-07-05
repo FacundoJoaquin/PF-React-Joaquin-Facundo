@@ -3,21 +3,15 @@ import CartWidget from '../CartWidget/CartWidget'
 import './navbar.css'
 import { Link } from 'react-router-dom'
 import { ItemsContext } from '../Context/ItemsContext'
+import ButtonDrop from '../utils/ButtonDrop/ButtonDrop'
 
 const NavBar = () => {
-  const { items } = useContext(ItemsContext);
-/* console.log(items);
- */
+  const { items, pokemonPull } = useContext(ItemsContext);
+
+ console.log('navbar ', pokemonPull);
   const [categories, setCategories] = useState([]);
 
-  useEffect(()=>{
-    fetch(`https://fakestoreapi.com/products`)
-    .then(resp => resp.json())
-    .then((data)=>{
-      const categorias = [...new Set(data.map(item => item.category))];
-      setCategories(categorias);
-    });
-  }, [])
+
 
 
   return (
@@ -25,11 +19,8 @@ const NavBar = () => {
       <Link to="/">
         <h1 className='brand'>POKENO</h1>
       </Link>
-      <ul>
-        {categories.map((category, index) => (
-          <li key={index}><Link to={`/category/${category}`}>{category}</Link></li>
-        ))}
-      </ul>
+      <ButtonDrop data={pokemonPull}/>
+
       <Link to="/cart">
         <CartWidget items={items}/>
       </Link>
