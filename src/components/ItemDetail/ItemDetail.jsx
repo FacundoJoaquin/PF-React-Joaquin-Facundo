@@ -1,3 +1,5 @@
+//AGREGAR TOAST DE QUE SE AÑADIO AL CARRITO
+
 import * as React from "react";
 import { useState, useContext, useEffect } from "react";
 import "./ItemDetail.css";
@@ -10,22 +12,30 @@ const CardDetail = ({ data }) => {
 
   const [count, setCount] = useState(0);
 
-  const addProdCart = () => {
-    setItems([...items, data]);
+  const [qty, setQty] = useState(0);
 
-    localStorage.setItem("cart", JSON.stringify([...items, data]));
+  const incrementQty = () => {
+    setQty(qty + 1);
   };
-
-  const deleteProductCart = () => {
-    if (items.length > 0 && items[items.length - 1][0].id === data[0].id) {
-      setItems(items.slice(0, items.length - 1));
+  const decrememtQty = () => {
+    setQty(qty - 1);
+  };
+  const addProdCart = () => {
+    if (qty > 0) {
+      const existingItem = items.find((item) => item.id === data[0].id);
+      if (existingItem) {
+        existingItem.qty += qty;
+        setItems([...items]);
+      } else {
+        const newItem = { ...data[0], qty };
+        setItems([...items, newItem]);
+      }
+      setQty(0);
+  
+      const updatedCart = [...items];
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
     }
   };
-
-  useEffect(() => {
-    const filteredItems = items.filter((item) => item[0].id === data[0].id);
-    setCount(filteredItems.length);
-  }, [items, data]);
 
   const deleteCart = () => {
     setItems([]);
@@ -57,18 +67,13 @@ const CardDetail = ({ data }) => {
             </ul>
           </div>
           <div className="btn-container">
-            <div className="qty-container">
-
-              <button className="button-qty" onClick={deleteProductCart}>
-                -
-              </button>
-              <p> {count}</p>
-              <button className="button-qty" onClick={addProdCart}>
-                +
-              </button>
-            </div>
-            <Link to={'/cart'}><button className="button-add">Ir al carrito</button></Link>
+            <button onClick={addProdCart} className="button-add">
+              Agregar al carrito
+            </button>
           </div>
+          <button className="button-qty" onClick={incrementQty}>+</button>
+          <button className="button-qty" onClick={decrememtQty}>-</button>
+          {qty}
         </div>
       </div>
     </div>

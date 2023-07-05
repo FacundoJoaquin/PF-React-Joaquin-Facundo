@@ -3,11 +3,17 @@ import React, { createContext, useState } from "react";
 export const ItemsContext = createContext();
 
 export const ItemsProvider = ({ children }) => {
+
+
   const [items, setItems] = useState([]); //seria el cart
-  const [cart, setCart] = useState([]);
+  const [contador, setContador] = useState([])
+
+  const [groupedItems, setGroupedItems] = useState([]);
 
   return (
-    <ItemsContext.Provider value={{ cart, setCart, items, setItems }}>
+    <ItemsContext.Provider
+      value={{items, setItems, contador, setContador}}
+    >
       {children}
     </ItemsContext.Provider>
   );

@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Cart from "./components/Cart/Cart";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { ItemsProvider } from './components/Context/ItemsContext';
+import CartLoader from './components/utils/CartLoader/CartLoader';
 /* import {db} from "./firebase/firebaseConfig"
 import { collection, query, where, getDocs } from "firebase/firestore"; */
 
@@ -32,6 +33,7 @@ const App = () => {
   return (
     <ItemsProvider>
       <BrowserRouter>
+        <CartLoader />
         <NavBar />
         <Routes>
           <Route exact path="/" element={<ItemListContainer />} />

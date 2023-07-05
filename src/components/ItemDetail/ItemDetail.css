@@ -130,3 +130,20 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+.button-qty {
+  width: 50px;
+  border: none;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.button-qty:hover {
+  transition: 0.3s ease-in-out;
+  box-shadow: 0.4px 0.6px 2.2px rgba(0, 0, 0, 0.028),
+    1.1px 1.5px 5.4px rgba(0, 0, 0, 0.04), 2px 2.8px 10.1px rgba(0, 0, 0, 0.05),
+    3.6px 4.9px 18.1px rgba(0, 0, 0, 0.06),
+    6.7px 9.2px 33.8px rgba(0, 0, 0, 0.072), 16px 22px 81px rgba(0, 0, 0, 0.1);
+}

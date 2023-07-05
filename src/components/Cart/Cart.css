@@ -1,53 +1,103 @@
-/* .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   
-  table {
-    width: 60%;
-    border-collapse: collapse;
-    border-left: 1px solid rgba(215, 215, 215, 0.346);
-    border-right: 1px solid rgba(215, 215, 215, 0.346);
-    border-top: 1px solid rgba(215, 215, 215, 0.346);
-    box-shadow:
-    0px 0px 2.2px rgba(0, 0, 0, -0.008),
-    0px 0px 5.3px rgba(0, 0, 0, -0.011),
-    0px 0px 10px rgba(0, 0, 0, -0.009),
-    0px 0px 17.9px rgba(0, 0, 0, 0.001),
-    0px 0px 33.4px rgba(0, 0, 0, 0.026),
-    0px 0px 80px rgba(0, 0, 0, 0.13)
-  ;
-  }
-  h1 {
-    font-family: 'roboto', sans-serif;
-    margin-bottom: 15px;
-  }
-  th,
-  td {
-    text-align: center;
-    padding: 8px;
-    border-bottom: 1px solid rgba(215, 215, 215, 0.346);
-    border-bottom: 1px solid rgba(215, 215, 215, 0.346);
-  }
-  
-  th {
-    color: black;
-  }
-  
-  .button-delete {
-    border: none;
-    background-color: #1c1c1c;
-    border-radius: 10px;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    width: 50px;
-  }
-  .item-link {
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .oak{
-    display: flex;
-    justify-content: center;
-  } */
+}
+.main-container p, h1 {
+  cursor: default;
+  font-family: "Press Start 2P", cursive;
+}
+.main-container h1 {
+  margin-bottom: 25px;
+}
+.item-container {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+  border-radius: 30px;
+  box-shadow:
+  0px 0px 1.1px rgba(0, 0, 0, 0.096),
+  0px 0px 2.6px rgba(0, 0, 0, 0.145),
+  0px 0px 4.9px rgba(0, 0, 0, 0.174),
+  0px 0px 8.7px rgba(0, 0, 0, 0.193),
+  0px 0px 16.3px rgba(0, 0, 0, 0.216),
+  0px 0px 39px rgba(0, 0, 0, 0.29)
+;
+}
+.item-container:hover {
+  transform: scale(1.05);
+}
+.imagen {
+  width: 150px;
+  height: 150px;
+}
+.name-container {
+  display: flex;
+  align-items: center;
+  font-family: "Press Start 2P", cursive;
+}
+.name-container p {
+  font-size: 30px;
+}
+.qty-container {
+}
+.button-qty {
+  cursor: pointer;
+  width: 50px;
+  border: none;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+.qty-container p {
+  font-family: "Press Start 2P", cursive;
+}
+.button-qty:hover {
+  transition: 0.3s ease-in-out;
+  box-shadow: 0.4px 0.6px 2.2px rgba(0, 0, 0, 0.028),
+    1.1px 1.5px 5.4px rgba(0, 0, 0, 0.04), 2px 2.8px 10.1px rgba(0, 0, 0, 0.05),
+    3.6px 4.9px 18.1px rgba(0, 0, 0, 0.06),
+    6.7px 9.2px 33.8px rgba(0, 0, 0, 0.072), 16px 22px 81px rgba(0, 0, 0, 0.1);
+}
+.extra-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.extra-container p {
+  font-family: "Press Start 2P", cursive;
+}
+.extra-container p:first-child {
+  margin-bottom: 10px;
+}
+.extra-container p:last-child {
+  cursor: pointer;
+}
+.delete:hover {
+  transform: scale(1.1);
+}
+.delete {
+  cursor: pointer;
+}
+.complete-container {
+  margin-top: 30px;
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+}
+.button-confirm {
+  margin-top: 10px;
+  cursor: pointer;
+  width: 200px;
+  border: none;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
