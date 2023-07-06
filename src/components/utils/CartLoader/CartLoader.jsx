@@ -1,11 +1,7 @@
 import { useContext, useEffect } from "react";
-import { ItemsContext } from "../../Context/ItemsContext";
-
+import { ItemsContext } from "../Context/ItemsContext";
 const CartLoader = () => {
   const { setItems } = useContext(ItemsContext);
-
-
-
 
   useEffect(() => {
     const getCart = localStorage.getItem("cart");

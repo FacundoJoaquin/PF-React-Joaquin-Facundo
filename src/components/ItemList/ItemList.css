@@ -35,7 +35,7 @@
     border-radius: 68% / 15% 15% 0 0;
     background-color: rgba(255, 255, 255, 0.771);
     backdrop-filter: blur(1%);
-    bottom: 0; /* Para que el efecto de blur comience desde abajo */
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +53,7 @@
     color: white;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    flex: 1; /* Ocupa todo el espacio vertical disponible */
+    flex: 1; 
   }
   
   .name {
@@ -61,9 +61,9 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    align-items: center; /* Alinear el texto y el botón en el centro horizontal */
+    align-items: center; 
     margin-top: 70%;
-    text-align: center; /* Alinear el texto y el botón en el centro vertical */
+    text-align: center; 
   }
   
   .dataname {
@@ -81,7 +81,7 @@
     border-radius: 15px;
     display: flex;
     justify-content: space-around;
-    align-items: stretch; /* Alinear los elementos en la misma altura */
+    align-items: stretch; 
     width: 90%;
     height: 100px;
     margin-top: 25px;

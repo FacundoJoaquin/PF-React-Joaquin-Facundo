@@ -1,17 +1,27 @@
-//AGREGAR TOAST DE QUE SE AÑADIO AL CARRITO
-
 import * as React from "react";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import "./ItemDetail.css";
-import { Navigate, useNavigate  } from "react-router-dom";
-import Boton from "../Boton/Boton.jsx";
-import { ItemsContext } from "../Context/ItemsContext";
+import { ItemsContext } from "../utils/Context/ItemsContext";
+import Swal from "sweetalert2";
 
 const CardDetail = ({ data }) => {
   const { setItems, items } = useContext(ItemsContext);
 
-
   const [qty, setQty] = useState(0);
+
+  const Toast = Swal.mixin({
+    toast: true,
+    text: "Pokemon añadido al carrito",
+    position: "bottom-right",
+    iconColor: "green",
+    icon: "success",
+    customClass: {
+      container: "custom-alert",
+      popup: "colored-toast",
+    },
+    showConfirmButton: false,
+    timer: 1500,
+  });
 
   const incrementQty = () => {
     setQty(qty + 1);
@@ -29,14 +39,12 @@ const CardDetail = ({ data }) => {
         const newItem = { ...data[0], qty };
         setItems([...items, newItem]);
       }
+      Toast.fire();
       setQty(0);
       const updatedCart = [...items];
       localStorage.setItem("cart", JSON.stringify(updatedCart));
-
     }
   };
-
-
 
   return (
     <div className="container">
@@ -79,6 +87,7 @@ const CardDetail = ({ data }) => {
           </div>
         </div>
       </div>
+      <div id="custom-target"></div>
     </div>
   );
 };

@@ -84,6 +84,7 @@ h1 {
 .ul-pokemon {
   display: block;
   margin: 10px 0;
+  list-style: none;
 }
 .btn-container {
   margin-top: 40px;
@@ -157,4 +158,8 @@ h1 {
 }
 .itd-qty {
   font-family: "Press Start 2P", cursive;
+}
+
+.custom-alert {
+  font-family: 'Roboto';
 }

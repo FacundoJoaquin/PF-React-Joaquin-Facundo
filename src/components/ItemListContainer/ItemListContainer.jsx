@@ -1,33 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import Swal from "sweetalert2";
-import Loader from "../Loader/Loader";
+import Loader from "../utils/Loader/Loader";
 import "./ItemListContainer.css";
 import { db } from "../../firebase/firebaseConfig";
-import { collection, query, where, getDocs } from "firebase/firestore";
-
-import { ItemsContext } from "../Context/ItemsContext";
+import { collection, query, getDocs } from "firebase/firestore";
+import { ItemsContext } from '../utils/Context/ItemsContext'; 
 
 const ItemListContainer = () => {
-  //context
   const { items, setPokemonPull } = useContext(ItemsContext);
-  console.log(items);
-  /*   console.log(items);
-   */
 
-  //codigo entrega 2
   const [pokemon, setPokemon] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
-  const errorFetching = () => {
-    Swal.fire({
-      position: "center",
-      icon: "error",
-      text: "Error, no se pudo cargar los productos",
-      showConfirmButton: true,
-    });
-  };
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -38,7 +22,7 @@ const ItemListContainer = () => {
         pokemons.push({ ...doc.data() });
       });
       setLoaded(true);
-      setPokemon(pokemons); //tengo almacenado los pokemon
+      setPokemon(pokemons);
       setPokemonPull(pokemons)
     };
     getPokemon();

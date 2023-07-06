@@ -64,7 +64,7 @@ body {
     animation: blink .5s alternate 7;
 }
 
-/* Animation */
+
 @keyframes blink {
     from {
         background: #eee;

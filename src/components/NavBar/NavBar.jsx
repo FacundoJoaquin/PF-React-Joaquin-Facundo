@@ -1,31 +1,25 @@
-import React, { useEffect, useState, useContext } from 'react'
-import CartWidget from '../CartWidget/CartWidget'
-import './navbar.css'
-import { Link } from 'react-router-dom'
-import { ItemsContext } from '../Context/ItemsContext'
-import ButtonDrop from '../utils/ButtonDrop/ButtonDrop'
+import React, { useContext } from "react";
+import CartWidget from "../utils/CartWidget/CartWidget";
+import "./navbar.css";
+import { Link } from "react-router-dom";
+import { ItemsContext } from "../utils/Context/ItemsContext";
+import ButtonDrop from "../utils/ButtonDrop/ButtonDrop";
 
 const NavBar = () => {
   const { items, pokemonPull } = useContext(ItemsContext);
 
- console.log('navbar ', pokemonPull);
-  const [categories, setCategories] = useState([]);
-
-
-
-
   return (
-    <div className='navBar'>
+    <div className="navBar">
       <Link to="/">
-        <h1 className='brand'>POKENO</h1>
+        <h1 className="brand">POKENO</h1>
       </Link>
-      <ButtonDrop data={pokemonPull}/>
+      <ButtonDrop data={pokemonPull} />
 
       <Link to="/cart">
-        <CartWidget items={items}/>
+        <CartWidget items={items} />
       </Link>
     </div>
   );
-}
+};
 
-export default NavBar
+export default NavBar;

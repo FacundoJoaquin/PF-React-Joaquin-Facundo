@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import carritoImage from "../../assets/cart.png";
+import React from "react";
+import carritoImage from "../../../assets/cart.png";
 import "./CartWidget.css";
 
 const CartWidget = ({ items }) => {

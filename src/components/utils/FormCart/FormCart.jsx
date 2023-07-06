@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import React, { useContext, useState } from "react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
 import "./FormCart.css";
 import Back from "../../../assets/Back.png";
-import { ItemsContext } from "../../Context/ItemsContext";
+import { ItemsContext } from "../Context/ItemsContext";
+import Swal from "sweetalert2";
 
 const FormCart = ({ handleBack }) => {
   const client = {
@@ -25,16 +26,31 @@ const FormCart = ({ handleBack }) => {
 
   const validateForm = (e) => {
     e.preventDefault();
-    if (clientState.email !== clientState.emailcheck) {
-      console.log("Los correos electrónicos no coinciden");
+
+    const telNumberRegex = /^\d+$/; 
+
+    if (!telNumberRegex.test(clientState.telnumber)) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Por favor, ingrese su numero telefonico.",
+      });
+    } else if (clientState.email !== clientState.emailcheck) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Los email no coinciden.",
+      });
     } else {
       submitForm();
     }
   };
 
+
   const submitForm = async () => {
     const docRef = await addDoc(collection(db, "sales"), {
       clientState,
+      timestamp: serverTimestamp()
     });
     setSaleId(docRef.id);
     setClientState(client);
@@ -83,6 +99,7 @@ const FormCart = ({ handleBack }) => {
               type="text"
               className="input-style"
               name="email"
+              placeholder="Email"
               onChange={setClient}
               value={clientState.email}
               required
@@ -94,6 +111,7 @@ const FormCart = ({ handleBack }) => {
               type="text"
               className="input-style"
               name="emailcheck"
+              placeholder="Repita su email"
               onChange={setClient}
               value={clientState.emailcheck}
               required
@@ -105,6 +123,7 @@ const FormCart = ({ handleBack }) => {
               type="text"
               className="input-style"
               name="telnumber"
+              placeholder="Telefono"
               onChange={setClient}
               value={clientState.telnumber}
               required

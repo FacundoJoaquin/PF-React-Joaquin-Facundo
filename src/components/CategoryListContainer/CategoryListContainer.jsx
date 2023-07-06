@@ -2,16 +2,13 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useParams } from "react-router-dom";
-import Loader from "../Loader/Loader";
 import ItemList from "../ItemList/ItemList";
-import { ItemsContext } from "../Context/ItemsContext";
+import Loader from "../utils/Loader/Loader";
 
 const CategoryListContainer = () => {
   const { generacion } = useParams();
   const [pokemonGeneration, setPokemonGeneration] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  console.log(generacion, pokemonGeneration);
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -22,7 +19,6 @@ const CategoryListContainer = () => {
       const querySnapshot = await getDocs(q);
       let pokemons = [];
       querySnapshot.forEach((doc) => {
-        console.log("DATA: ", doc.data(), "GENERACION: ", generacion);
         pokemons.push({ ...doc.data() });
       });
       setLoading(true);
@@ -33,10 +29,10 @@ const CategoryListContainer = () => {
   }, [generacion]);
   return (
     <div className="ilc">
-      {generacion === 'primera' ? (
-        <h2>Quien no soño tener un pikachu</h2>
+      {generacion === "primera" ? (
+        <h2>Reviví tu infancia</h2>
       ) : (
-        <h2>nuestros productos</h2>
+        <h2>Nuestros productos</h2>
       )}
       <div className="card-container">
         {loading ? (

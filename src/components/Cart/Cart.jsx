@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
-import { ItemsContext } from "../Context/ItemsContext";
+import { ItemsContext } from "../utils/Context/ItemsContext";
 import Oak from "../../assets/oak.png";
 import FormCart from "../utils/FormCart/FormCart";
 
@@ -59,7 +59,6 @@ const Cart = () => {
     );
     handleMessage();
     setTotal(newTotal);
-    console.log(items.length);
     if (items.length == 0) {
       localStorage.setItem("cart", []);
     }
@@ -69,12 +68,12 @@ const Cart = () => {
     setShowForm(true);
   };
   const quitForm = () => {
-    setShowForm(false)
-  }
+    setShowForm(false);
+  };
   return (
     <div className="main-container">
       {showForm ? (
-        <FormCart handleBack={quitForm}/>
+        <FormCart handleBack={quitForm} />
       ) : (
         <>
           <h1>Carrito</h1>
