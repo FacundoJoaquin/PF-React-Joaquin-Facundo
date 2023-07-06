@@ -1,0 +1,13 @@
+.not-found{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Press Start 2P", cursive;
+    font-size: 18px;
+}
+.not-found p{
+    position: absolute;
+    right: 60%;
+    top: 52%;
+
+}
