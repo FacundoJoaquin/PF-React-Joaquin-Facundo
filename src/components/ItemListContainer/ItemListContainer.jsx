@@ -7,7 +7,7 @@ import { collection, query, getDocs } from "firebase/firestore";
 import { ItemsContext } from '../utils/Context/ItemsContext'; 
 
 const ItemListContainer = () => {
-  const { items, setPokemonPull } = useContext(ItemsContext);
+  const { setPokemonPull } = useContext(ItemsContext);
 
   const [pokemon, setPokemon] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -19,7 +19,7 @@ const ItemListContainer = () => {
       const querySnapshot = await getDocs(q);
       let pokemons = [];
       querySnapshot.forEach((doc) => {
-        pokemons.push({ ...doc.data() });
+        pokemons.push({id: doc.id, ...doc.data() });
       });
       setLoaded(true);
       setPokemon(pokemons);

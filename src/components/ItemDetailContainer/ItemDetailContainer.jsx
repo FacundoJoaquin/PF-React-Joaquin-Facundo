@@ -5,7 +5,7 @@ import "./ItemDetailContainer.css";
 import { useState, useEffect } from "react";
 import Loader from "../utils/Loader/Loader";
 import { db } from "../../firebase/firebaseConfig";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, documentId } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -16,12 +16,12 @@ const ItemDetailContainer = () => {
     const getPokemon = async () => {
       const q = query(
         collection(db, "pokemon"),
-        where("id", "==", parseInt(id))
+        where(documentId(), "==", id)
       );
       const querySnapshot = await getDocs(q);
       let pokemons = [];
       querySnapshot.forEach((doc) => {
-        pokemons.push({ ...doc.data() });
+        pokemons.push({id: doc.id, ...doc.data() });
       });
       setLoading(true);
       setProd(pokemons);

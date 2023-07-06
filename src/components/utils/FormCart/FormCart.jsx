@@ -27,9 +27,9 @@ const FormCart = ({ handleBack }) => {
   const validateForm = (e) => {
     e.preventDefault();
 
-    const telNumberRegex = /^\d+$/; 
+    const telNumberTest = /^\d+$/; 
 
-    if (!telNumberRegex.test(clientState.telnumber)) {
+    if (!telNumberTest.test(clientState.telnumber)) {
       Swal.fire({
         icon: "error",
         title: "Error",
@@ -96,7 +96,7 @@ const FormCart = ({ handleBack }) => {
           </div>
           <div className="input-container">
             <input
-              type="text"
+              type="email"
               className="input-style"
               name="email"
               placeholder="Email"

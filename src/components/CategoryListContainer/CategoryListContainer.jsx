@@ -19,7 +19,7 @@ const CategoryListContainer = () => {
       const querySnapshot = await getDocs(q);
       let pokemons = [];
       querySnapshot.forEach((doc) => {
-        pokemons.push({ ...doc.data() });
+        pokemons.push({ id: doc.id, ...doc.data() });
       });
       setLoading(true);
       setPokemonGeneration(pokemons);
@@ -36,8 +36,8 @@ const CategoryListContainer = () => {
       )}
       <div className="card-container">
         {loading ? (
-          pokemonGeneration.map((product) => (
-            <div className="card" key={product.id}>
+          pokemonGeneration.map((product, index) => (
+            <div className="card" key={`${product.id}-${index}`}>
               <ItemList data={product} />
             </div>
           ))

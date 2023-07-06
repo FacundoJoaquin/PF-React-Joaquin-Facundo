@@ -27,7 +27,9 @@ const CardDetail = ({ data }) => {
     setQty(qty + 1);
   };
   const decrememtQty = () => {
-    setQty(qty - 1);
+    if (qty > 0){
+      setQty(qty - 1);
+    }
   };
   const addProdCart = () => {
     if (qty > 0) {
