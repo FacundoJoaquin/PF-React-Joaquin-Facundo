@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
 import "./FormCart.css";
-import Back from "../../../assets/Back.png";
+import Back from "../../../assets/back.png";
 import { ItemsContext } from "../Context/ItemsContext";
 import Swal from "sweetalert2";
 
